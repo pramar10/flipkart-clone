@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Header/Header";
 import { Col, Container, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+
 export default function Layout(props) {
   return (
     <>
@@ -16,6 +17,9 @@ export default function Layout(props) {
                 </li>
                 <li>
                   <NavLink to={"/products"}>Products</NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/category"}>Category</NavLink>
                 </li>
                 <li>
                   <NavLink to={"/orders"}>Orders</NavLink>
