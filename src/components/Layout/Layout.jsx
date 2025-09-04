@@ -1,9 +1,15 @@
 import React from "react";
-import Header from "../Header/Header";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import "./style.css";
+import Header from "../Header/Header";
 
-export default function Layout(props) {
+/**
+ * @author
+ * @function Layout
+ **/
+
+const Layout = (props) => {
   return (
     <>
       <Header />
@@ -13,20 +19,25 @@ export default function Layout(props) {
             <Col md={2} className="sidebar">
               <ul>
                 <li>
-                  <NavLink to={"/"}>Home</NavLink>
+                  <NavLink exact to={`/`}>
+                    Home
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to={"/products"}>Products</NavLink>
+                  <NavLink to={`/page`}>Page</NavLink>
                 </li>
                 <li>
-                  <NavLink to={"/category"}>Category</NavLink>
+                  <NavLink to={`/category`}>Category</NavLink>
                 </li>
                 <li>
-                  <NavLink to={"/orders"}>Orders</NavLink>
+                  <NavLink to={`/products`}>Products</NavLink>
+                </li>
+                <li>
+                  <NavLink to={`/orders`}>Orders</NavLink>
                 </li>
               </ul>
             </Col>
-            <Col md={10} style={{ marginLeft: "auto" }}>
+            <Col md={10} style={{ marginLeft: "auto", paddingTop: "60px" }}>
               {props.children}
             </Col>
           </Row>
@@ -36,4 +47,6 @@ export default function Layout(props) {
       )}
     </>
   );
-}
+};
+
+export default Layout;
