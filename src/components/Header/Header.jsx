@@ -48,6 +48,7 @@ export default function Header() {
       bg="dark"
       variant="dark"
       style={{ zIndex: 1 }}
+      fixed="top"
     >
       <Container fluid>
         {/* <Navbar.Brand href="#home">Admin Dashboard</Navbar.Brand> */}

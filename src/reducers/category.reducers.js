@@ -9,6 +9,17 @@ const initialState = {
 };
 const buildNewCategories = (parentId, categories, category) => {
   let myCategories = [];
+  if (!parentId) {
+    return [
+      ...categories,
+      {
+        _id: category._id,
+        name: category.name,
+        slug: category.slug,
+        children: [],
+      },
+    ];
+  }
 
   if (parentId == undefined) {
     return [

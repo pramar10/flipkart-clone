@@ -8,8 +8,8 @@ import productReducers from "./product.reducers";
 const rootReducer = combineReducers({
   auth: authReducers,
   user: userReducers,
-  order:orderReducers,
-  category:categoryReducers,
-  product:productReducers
+  order: orderReducers,
+  category: categoryReducers,
+  product: productReducers,
 });
 export default rootReducer;

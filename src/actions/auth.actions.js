@@ -38,6 +38,7 @@ export const login = (user) => {
 export const isUserLoggegIn = () => {
   return async (dispatch) => {
     const token = localStorage.getItem("token");
+    console.log("token---->", token);
     if (token) {
       const user = JSON.parse(localStorage.getItem("user"));
       dispatch({
