@@ -15,7 +15,7 @@ const pageRoutes = require("./routes/admin/page");
 const addressRoutes = require("./routes/address");
 const orderRoutes = require("./routes/order");
 const cors = require("cors");
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8080;
 env.config();
 
 mongoose
