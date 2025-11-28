@@ -15,7 +15,7 @@ const pageRoutes = require("./routes/admin/page");
 const addressRoutes = require("./routes/address");
 const orderRoutes = require("./routes/order");
 const cors = require("cors");
-
+const port = process.env.PORT || 4000;
 env.config();
 
 mongoose
@@ -44,6 +44,6 @@ app.use("/api", pageRoutes);
 app.use("/api", addressRoutes);
 app.use("/api", orderRoutes);
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
   console.log("Server");
 });
