@@ -4,7 +4,6 @@ import { categoryConstansts, productConstants } from "./constants";
 export const getInitialData = () => {
   return async (dispatch) => {
     const res = await axios.get("/initialData");
-    console.log(res);
     if (res.status === 200) {
       const { categories, products } = res.data;
       dispatch({

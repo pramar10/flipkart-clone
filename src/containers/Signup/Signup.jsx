@@ -33,7 +33,7 @@ function Signup() {
     <Layout>
       <Container>
         <p> {user.message}</p>
-        <Row style={{ marginTop: 50 }}>
+        <Row style={{ marginTop: 100 }}>
           <Col md={{ span: 6, offset: 3 }}>
             <Form onSubmit={userSignup}>
               <Row>

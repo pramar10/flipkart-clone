@@ -10,20 +10,22 @@ import { getInitialData, isUserLoggegIn } from "./actions";
 import Orders from "./containers/Orders/Orders";
 import Products from "./containers/Products/Products";
 import Category from "./containers/category/Category";
+import NewPage from "./containers/NewPage/NewPage";
 
 function App() {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  useEffect(() => {
-    dispatch(getInitialData());
-  }, []);
+
   useEffect(() => {
     if (!auth.authenticate) dispatch(isUserLoggegIn());
-  }, []);
+    else dispatch(getInitialData());
+  }, [auth.authenticate]);
+
   return (
     <div className="App">
       <Switch>
         <PrivateRoute path={"/"} exact component={Home} />
+        <PrivateRoute path={"/page"} exact component={NewPage} />
         <PrivateRoute path={"/products"} component={Products} />
         <PrivateRoute path={"/orders"} component={Orders} />
         <PrivateRoute path={"/category"} component={Category} />

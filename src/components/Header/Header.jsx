@@ -3,12 +3,16 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import { signout } from "../../actions";
+import { useHistory } from "react-router-dom";
+
 export default function Header() {
+  const history = useHistory();
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const logout = () => {
     dispatch(signout());
+    history.push("/signin");
   };
   const renderLoggedInLinks = () => {
     return (

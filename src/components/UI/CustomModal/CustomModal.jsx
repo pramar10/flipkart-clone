@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Modal, Button } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 
 export default function CustomModal({
   title,
@@ -7,18 +7,43 @@ export default function CustomModal({
   handleSubmit,
   handleClose,
   children,
+  size,
+  showfooter = true,
+  buttons,
+  ...props
 }) {
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} size={size}>
       <Modal.Header closeButton>
         <Modal.Title>{title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>{children}</Modal.Body>
-      <Modal.Footer>
-        <Button variant="primary" onClick={handleSubmit}>
-          Save Changes
-        </Button>
-      </Modal.Footer>
+      {showfooter && (
+        <Modal.Footer>
+          {buttons ? (
+            buttons.map((btn, index) => {
+              return (
+                <Button key={index} variant={btn.color} onClick={btn.onClick}>
+                  {btn.label}
+                </Button>
+              );
+            })
+          ) : (
+            <Button
+              variant="primary"
+              onClick={handleSubmit}
+              className="btn-sm"
+              style={{
+                backgroundColor: "#333",
+                borderColor: "#333",
+              }}
+              {...props}
+            >
+              {"Save"}
+            </Button>
+          )}
+        </Modal.Footer>
+      )}
     </Modal>
   );
 }
