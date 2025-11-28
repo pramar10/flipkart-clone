@@ -1,3 +1,2 @@
-export const api = "http://localhost:2000/api";
-export const generatePublicUrl = (fileName) =>
-  `http://localhost:2000/public/${fileName}`;
+const api = process.env.REACT_APP_API_URL;
+export const generatePublicUrl = (fileName) => `${api}/public/${fileName}`;
